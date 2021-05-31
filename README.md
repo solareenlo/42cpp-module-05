@@ -23,3 +23,5 @@
       inline static const string RECTANGLE = "rectangle";
     };
     ```
+- [Weird error on 'exception specification of overriding function is more lax than base version' in C++](https://stackoverflow.com/questions/59919357/weird-error-on-exception-specification-of-overriding-function-is-more-lax-than)
+- [exception specification of overriding function is more lax than base version](https://stackoverflow.com/questions/53829852/exception-specification-of-overriding-function-is-more-lax-than-base-version/53829972)
