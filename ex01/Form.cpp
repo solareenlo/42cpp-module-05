@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:54:52 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 06:30:18 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 06:33:22 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ bool    Form::isSigned() const {
     return (this->signed_);
 }
 
-void    Form::beSigned(Bureaucrat& bureaucrat) {
+void    Form::beSigned(Bureaucrat const& bureaucrat) {
     if (bureaucrat.getGrade() > this->signableGrade_)
     this->signed_ = true;
 }
