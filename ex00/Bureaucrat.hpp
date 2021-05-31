@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:50:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 02:35:08 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 02:43:22 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class   Bureaucrat {
         ~GradeTooHighException() throw();
         GradeTooHighException&  operator=(GradeTooHighException const& right);
 
+     public:
         char const* what() const throw();
     };
 
@@ -49,6 +50,7 @@ class   Bureaucrat {
         ~GradeTooLowException() throw();
         GradeTooLowException&   operator=(GradeTooLowException const& right);
 
+     public:
         char const* what() const throw();
     };
 
