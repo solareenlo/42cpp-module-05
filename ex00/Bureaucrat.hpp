@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:50:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/31 19:17:14 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 00:42:06 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class   Bureaucrat {
 
     std::string const&  getName() const;
     int                 getGrade() const;
+    void                setGrade(int grade);
     void                incrementGrade();
     void                decrementGrade();
 
@@ -33,7 +34,7 @@ class   Bureaucrat {
      public:
         GradeTooHighException();
         GradeTooHighException(GradeTooHighException const& src);
-        ~GradeTooHighException();
+        ~GradeTooHighException() throw();
         GradeTooHighException&  operator=(GradeTooHighException const& right);
 
         char const* what() const throw();
@@ -43,7 +44,7 @@ class   Bureaucrat {
      public:
         GradeTooLowException();
         GradeTooLowException(GradeTooLowException const& src);
-        ~GradeTooLowException();
+        ~GradeTooLowException() throw();
         GradeTooLowException&   operator=(GradeTooLowException const& right);
 
         char const* what() const throw();
@@ -57,8 +58,6 @@ class   Bureaucrat {
     int                 getHighestGrade_() const;
     int                 getLowestGrade_() const;
     int                 checkGrade_(int grade);
-    static const char*  msg_too_high_;
-    static const char*  msg_too_low_;
 };
 
 std::ostream&   operator<<(std::ostream& ostream, Bureaucrat const& right);
