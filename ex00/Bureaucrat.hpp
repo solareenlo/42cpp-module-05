@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:50:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 02:14:59 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 02:35:08 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ class   Bureaucrat {
     virtual ~Bureaucrat();
     Bureaucrat&         operator=(Bureaucrat const& right);
 
+ public:
     std::string const&  getName() const;
     int                 getGrade() const;
     void                setGrade(int grade);
     void                incrementGrade();
     void                decrementGrade();
 
+ public:
     class   GradeTooHighException : public std::exception {
      public:
         GradeTooHighException();
