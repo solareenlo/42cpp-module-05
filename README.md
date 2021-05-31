@@ -1,5 +1,43 @@
 # 42cpp-module-05
 
+### ex01
+- 複数個の exception
+- [その13 内部クラスは外側クラスのメンバにアクセスし放題！](http://marupeke296.com/CPP_No13_SubClass.html)
+- [そろそろ内部クラスに関して一言言っておくか](http://isoparametric.hatenablog.com/entry/20080117/1200575103)
+    ```c++
+#include <iostream>
+
+    class Hoge {
+     public:
+        Hoge() : bar_(*this) {}
+
+     private:
+        class Bar {
+         public:
+            explicit Bar(Hoge& hoge) : hoge_(hoge) {}
+            void func() {
+                hoge_.func();
+            }
+            Hoge& hoge_;
+        };
+        Bar bar_;
+        void func() {
+            std::cout << "func" << std::endl;
+        }
+
+     public:
+        Bar& Bar() { return bar_; }
+    };
+
+    int main() {
+        Hoge hoge;
+        hoge.Bar().func();
+        return 0;
+    }
+    ```
+- [Why would one use nested classes in C++?](https://stackoverflow.com/questions/4571355/why-would-one-use-nested-classes-in-c)
+
+
 ### ex00
 - [std::exception](https://cpprefjp.github.io/reference/exception/exception.html)
   - `exception` クラスは，標準ライブラリが提供する全ての例外クラスの基底クラス．
