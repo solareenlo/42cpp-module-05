@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:14:05 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 06:31:04 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 07:20:48 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ class   Form {
 
  public:
     std::string const&  getName() const;
-    int const           getSignableGrade() const;
-    int const           getExecutableGrade() const;
+    int                 getSignableGrade() const;
+    int                 getExecutableGrade() const;
     bool                isSigned() const;
     void                beSigned(Bureaucrat const& bureaucrat);
 
  private:
-    std::string         name_;
+    std::string const   name_;
     int const           signableGrade_;
     int const           executableGrade_;
     bool                signed_;
@@ -42,9 +42,9 @@ class   Form {
     static const int    lowest_grade_ = 150;
 
  private:
-    int const           getHighestGrade_() const;
-    int const           getLowestGrade_() const;
-    int                 checkGrade_(int grade);
+    int                 getHighestGrade_() const;
+    int                 getLowestGrade_() const;
+    int                 checkGrade_(int grade, bool sign);
 
  public:
     class   GradeTooHighException : public std::exception {
@@ -73,6 +73,7 @@ class   Form {
         GradeTooLowException& operator=(GradeTooLowException const& right);
 
      public:
+        bool        getSigned() const;
         char const* what() const throw();
 
      private:

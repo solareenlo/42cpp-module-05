@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 00:09:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 02:07:05 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 07:17:07 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include <exception>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-void    _test(std::string const& name, int grade) {
+void    _test_bure(std::string const& name, int grade) {
     try {
         std::cout << name << "'s test" << std::endl;
         Bureaucrat  bureaucrat(name, grade);
@@ -33,23 +34,42 @@ void    _test(std::string const& name, int grade) {
     }
 }
 
+void    _test_form(std::string const& name, int grade_sign, int grade_exec) {
+    try {
+        Form    form(name, grade_sign, grade_exec);
+        std::cout << form;
+    }
+    catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+}
+
 int main() {
-    _test("Akira", 100);
-    std::cout << std::endl;
+    {
+        std::cout << "<TEST BUREAUCRAT>" << std::endl;
+        _test_bure("Akira", 100);
+        std::cout << std::endl;
 
-    _test("Tetsuo", 1);
-    std::cout << std::endl;
+        _test_bure("Tetsuo", 1);
+        std::cout << std::endl;
 
-    _test("Kiyoko", 150);
-    std::cout << std::endl;
+        _test_bure("Kiyoko", 150);
+        std::cout << std::endl;
 
-    _test("Takashi", 1000);
-    std::cout << std::endl;
+        _test_bure("Takashi", 1000);
+        std::cout << std::endl;
 
-    _test("Masaru", -100);
-    std::cout << std::endl;
+        _test_bure("Masaru", -100);
+        std::cout << std::endl;
 
-    _test("Taisa", 0);
-    std::cout << std::endl;
+        _test_bure("Taisa", 0);
+        std::cout << std::endl;
+    }
+    {
+        std::cout << "<TEST FORM>" << std::endl;
+        _test_form("test1", 10, 10);
+        _test_form("test2", 20, 10);
+        _test_form("test3", 10, 20);
+    }
     return (0);
 }
