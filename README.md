@@ -36,6 +36,7 @@
     }
     ```
 - [Why would one use nested classes in C++?](https://stackoverflow.com/questions/4571355/why-would-one-use-nested-classes-in-c)
+- [Why is a type qualifier on a return type meaningless?](https://stackoverflow.com/questions/1607188/why-is-a-type-qualifier-on-a-return-type-meaningless)
 
 
 ### ex00
