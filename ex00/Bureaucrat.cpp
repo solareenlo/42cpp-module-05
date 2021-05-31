@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:25:37 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 02:01:45 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 02:15:25 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {
 }
 
 Bureaucrat::GradeTooHighException&
-Bureaucrat::GradeTooHighException::operator=(GradeTooHighException const& right) {
+Bureaucrat::GradeTooHighException::operator=
+(GradeTooHighException const& right) {
     (void)right;
     return (*this);
 }

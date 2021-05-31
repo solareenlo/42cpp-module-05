@@ -6,12 +6,12 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:50:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 00:42:06 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 02:14:59 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #ifndef EX00_BUREAUCRAT_HPP_
-#define  EX00_BUREAUCRAT_HPP_
+#define EX00_BUREAUCRAT_HPP_
 
 #include <iostream>
 #include <string>
