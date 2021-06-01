@@ -2,47 +2,48 @@
 
 ### ex01
 - 複数個の exception
-- [その13 内部クラスは外側クラスのメンバにアクセスし放題！](http://marupeke296.com/CPP_No13_SubClass.html)
-- [そろそろ内部クラスに関して一言言っておくか](http://isoparametric.hatenablog.com/entry/20080117/1200575103)
-    ```c++
-#include <iostream>
+- nested classes
+  - [その13 内部クラスは外側クラスのメンバにアクセスし放題！](http://marupeke296.com/CPP_No13_SubClass.html)
+  - [そろそろ内部クラスに関して一言言っておくか](http://isoparametric.hatenablog.com/entry/20080117/1200575103)
+      ```c++
+      #include <iostream>
 
-    class Hoge {
-     public:
-        Hoge() : bar_(*this) {}
+      class Hoge {
+       public:
+          Hoge() : bar_(*this) {}
 
-     private:
-        class Bar {
-         public:
-            explicit Bar(Hoge& hoge) : hoge_(hoge) {}
-            void func() {
-                hoge_.func();
-            }
-            Hoge& hoge_;
-        };
-        Bar bar_;
-        void func() {
-            std::cout << "func" << std::endl;
-        }
+       private:
+          class Bar {
+           public:
+              explicit Bar(Hoge& hoge) : hoge_(hoge) {}
+              void func() {
+                  hoge_.func();
+              }
+              Hoge& hoge_;
+          };
+          Bar bar_;
+          void func() {
+              std::cout << "func" << std::endl;
+          }
 
-     public:
-        Bar& Bar() { return bar_; }
-    };
+       public:
+          Bar& Bar() { return bar_; }
+      };
 
-    int main() {
-        Hoge hoge;
-        hoge.Bar().func();
-        return 0;
-    }
-    ```
-- [Why would one use nested classes in C++?](https://stackoverflow.com/questions/4571355/why-would-one-use-nested-classes-in-c)
-- [Why is a type qualifier on a return type meaningless?](https://stackoverflow.com/questions/1607188/why-is-a-type-qualifier-on-a-return-type-meaningless)
+      int main() {
+          Hoge hoge;
+          hoge.Bar().func();
+          return 0;
+      }
+      ```
+  - [Why would one use nested classes in C++?](https://stackoverflow.com/questions/4571355/why-would-one-use-nested-classes-in-c)
+  - [Why is a type qualifier on a return type meaningless?](https://stackoverflow.com/questions/1607188/why-is-a-type-qualifier-on-a-return-type-meaningless)
 
 
 ### ex00
 - [std::exception](https://cpprefjp.github.io/reference/exception/exception.html)
   - `exception` クラスは，標準ライブラリが提供する全ての例外クラスの基底クラス．
-- class の入れ子
+- nested classes
 - [Static constant string (class member)](https://stackoverflow.com/questions/1563897/static-constant-string-class-member)
   - Before C++17
     ```c++
