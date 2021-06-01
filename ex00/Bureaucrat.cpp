@@ -6,20 +6,24 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 04:56:53 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/02 08:38:21 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/02 08:49:40 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name_("Default"), grade_(150) {}
+Bureaucrat::Bureaucrat() : name_("Default"), grade_(150) {
+    this->checkGrade(this->getGrade());
+}
 
 Bureaucrat::Bureaucrat(Bureaucrat const& src) : name_(src.getName()) {
     this->operator=(src);
 }
 
 Bureaucrat::Bureaucrat(std::string const& name, int grade)
-    : name_(name), grade_(grade) {}
+    : name_(name), grade_(grade) {
+    this->checkGrade(this->getGrade());
+}
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -27,6 +31,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat const& right) {
     if (this != &right) {
         this->grade_ = right.getGrade();
     }
+    this->checkGrade(this->getGrade());
     return (*this);
 }
 
@@ -43,7 +48,13 @@ int                 Bureaucrat::getLowestGrade() const {
 }
 
 void    Bureaucrat::incrementGrade() {
-    this->grade_--;
+    this->setGrade(this->getGrade() - 1);
+    this->checkGrade(this->getGrade());
+}
+
+void    Bureaucrat::decrementGrade() {
+    this->setGrade(this->getGrade() + 1);
+    this->checkGrade(this->getGrade());
 }
 
 void    Bureaucrat::checkGrade(int grade) {
