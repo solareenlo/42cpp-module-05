@@ -10,7 +10,7 @@ jobs:
       with:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review
-        flags: --linelength=50 # Optional
+        flags: --linelength=80 # Optional
         filter: "-readability/braces\
           ,-whitespace/braces\
           ,-whitespace/comments\
