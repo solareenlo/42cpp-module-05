@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 00:09:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 11:01:45 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:36:02 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    _test(std::string const& name_bure, int grade_bure,
         Bureaucrat  bure(name_bure, grade_bure);
         Form        form(name_form, grade_sign, grade_exec);
         std::cout << bure;
-        bure.signForm(form);
+        bure.signForm(&form);
         std::cout << form;
     }
     catch (const std::exception& e) {

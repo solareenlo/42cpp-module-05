@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:25:37 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 10:49:54 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:35:27 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void    Bureaucrat::decrementGrade() {
     this->setGrade(this->checkGrade_(this->getGrade() + 1));
 }
 
-void    Bureaucrat::signForm(Form& form) const {
+void    Bureaucrat::signForm(Form* form) const {
     try {
-        form.beSigned(*this);
-        std::cout << this->getName() << " signs " << form.getName();
+        form->beSigned(*this);
+        std::cout << this->getName() << " signs " << form->getName();
         std::cout << std::endl;
     }
     catch (std::exception const& e) {
-        std::cout << this->getName() << " cannot sign " << form.getName();
+        std::cout << this->getName() << " cannot sign " << form->getName();
         std::cout << " because " << e.what() << std::endl;
     }
 }
