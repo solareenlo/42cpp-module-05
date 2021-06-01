@@ -2,6 +2,7 @@
 
 ### ex01
 - 複数個の exception
+  - 上手にエラーハンドリング
 - nested classes
   - [その13 内部クラスは外側クラスのメンバにアクセスし放題！](http://marupeke296.com/CPP_No13_SubClass.html)
   - [そろそろ内部クラスに関して一言言っておくか](http://isoparametric.hatenablog.com/entry/20080117/1200575103)

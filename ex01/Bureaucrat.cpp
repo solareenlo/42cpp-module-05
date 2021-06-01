@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:25:37 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 09:45:12 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 10:49:54 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void    Bureaucrat::decrementGrade() {
 void    Bureaucrat::signForm(Form& form) const {
     try {
         form.beSigned(*this);
-        std::cout << this->getName() << " signs form ";
-        std::cout << form.getName() << std::endl;
+        std::cout << this->getName() << " signs " << form.getName();
+        std::cout << std::endl;
     }
     catch (std::exception const& e) {
         std::cout << this->getName() << " cannot sign " << form.getName();
@@ -108,7 +108,7 @@ Bureaucrat::GradeTooHighException::operator=
 }
 
 char const* Bureaucrat::GradeTooHighException::what() const throw() {
-    return ("Grade is too high.");
+    return ("Grade is too high");
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException() : std::exception() {
@@ -129,5 +129,5 @@ Bureaucrat::GradeTooLowException::operator=(GradeTooLowException const& right) {
 }
 
 char const* Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("Grade is too low.");
+    return ("Grade is too low");
 }
