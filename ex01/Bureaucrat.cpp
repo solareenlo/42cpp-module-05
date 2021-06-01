@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:25:37 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 06:30:46 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 09:45:12 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -55,6 +55,18 @@ void    Bureaucrat::decrementGrade() {
     this->setGrade(this->checkGrade_(this->getGrade() + 1));
 }
 
+void    Bureaucrat::signForm(Form& form) const {
+    try {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signs form ";
+        std::cout << form.getName() << std::endl;
+    }
+    catch (std::exception const& e) {
+        std::cout << this->getName() << " cannot sign " << form.getName();
+        std::cout << " because " << e.what() << std::endl;
+    }
+}
+
 int Bureaucrat::getLowestGrade_() const {
     return (this->lowest_grade_);
 }
@@ -72,7 +84,7 @@ int Bureaucrat::checkGrade_(int grade) {
 }
 
 std::ostream&   operator<<(std::ostream& ostream, Bureaucrat const& right) {
-    ostream << right.getName() << ", bureaucrat grade" << right.getGrade();
+    ostream << right.getName() << ", bureaucrat grade " << right.getGrade();
     ostream << std::endl;
     return (ostream);
 }

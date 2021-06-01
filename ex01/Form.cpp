@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:54:52 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 07:21:39 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 10:32:30 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Form::Form() :
     this->signed_ = false;
 }
 
-Form::Form(std::string const& name, int const signableGrade, int const executableGrade) :
+Form::Form(std::string const& name, int const signableGrade,
+        int const executableGrade) :
     name_(name),
     signableGrade_(checkGrade_(signableGrade, true)),
     executableGrade_(checkGrade_(executableGrade, false)) {
@@ -60,6 +61,7 @@ bool    Form::isSigned() const {
 
 void    Form::beSigned(Bureaucrat const& bureaucrat) {
     if (bureaucrat.getGrade() > this->signableGrade_)
+        throw Form::GradeTooLowException(true);
     this->signed_ = true;
 }
 
@@ -106,8 +108,8 @@ bool    Form::GradeTooHighException::getSigned() const {
 
 char const* Form::GradeTooHighException::what() const throw() {
     if (this->getSigned())
-        return ("the grade required to sign is high.");
-    return ("the grade required to execute is high.");
+        return ("the grade required to sign is too high.");
+    return ("the grade required to execute is too high.");
 }
 
 Form::GradeTooLowException::GradeTooLowException() : signed_(false) {
@@ -137,14 +139,13 @@ bool    Form::GradeTooLowException::getSigned() const {
 
 char const* Form::GradeTooLowException::what() const throw() {
     if (this->getSigned())
-        return ("the grade required to sign is low.");
-    return ("the grade required to execute is low.");
+        return ("the grade required to sign is too low.");
+    return ("the grade required to execute is too low.");
 }
 
 std::ostream&   operator<<(std::ostream& ostream, Form const& right) {
     ostream << right.getName() << ", ";
-    ostream << (right.isSigned() ? "signs " : "cannot sign ");
-    ostream << right.getSignableGrade();
-    ostream << (right.isSigned() ? "" : " because ") << std::endl;
+    ostream << (right.isSigned() ? "" : "not ");
+    ostream << "signed." << std::endl;
     return (ostream);
 }

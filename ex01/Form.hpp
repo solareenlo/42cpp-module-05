@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:14:05 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 07:20:48 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 08:54:04 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <exception>
 #include <string>
 #include "Bureaucrat.hpp"
+
+class   Bureaucrat;
 
 class   Form {
  public:

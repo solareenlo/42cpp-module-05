@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 00:09:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 07:17:07 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/01 10:28:52 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -16,27 +16,13 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-void    _test_bure(std::string const& name, int grade) {
+void    _test_form(std::string const& name_bure, int grade_bure,
+        std::string const& name_form, int grade_sign, int grade_exec) {
     try {
-        std::cout << name << "'s test" << std::endl;
-        Bureaucrat  bureaucrat(name, grade);
-
-        std::cout << name << "'s increment test" << std::endl;
-        bureaucrat.incrementGrade();
-        std::cout << bureaucrat;
-
-        std::cout << name << "'s decrement test" << std::endl;
-        bureaucrat.decrementGrade();
-        std::cout << bureaucrat;
-    }
-    catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
-    }
-}
-
-void    _test_form(std::string const& name, int grade_sign, int grade_exec) {
-    try {
-        Form    form(name, grade_sign, grade_exec);
+        Bureaucrat  bure(name_bure, grade_bure);
+        Form        form(name_form, grade_sign, grade_exec);
+        std::cout << bure;
+        bure.signForm(form);
         std::cout << form;
     }
     catch (const std::exception& e) {
@@ -45,31 +31,22 @@ void    _test_form(std::string const& name, int grade_sign, int grade_exec) {
 }
 
 int main() {
-    {
-        std::cout << "<TEST BUREAUCRAT>" << std::endl;
-        _test_bure("Akira", 100);
-        std::cout << std::endl;
-
-        _test_bure("Tetsuo", 1);
-        std::cout << std::endl;
-
-        _test_bure("Kiyoko", 150);
-        std::cout << std::endl;
-
-        _test_bure("Takashi", 1000);
-        std::cout << std::endl;
-
-        _test_bure("Masaru", -100);
-        std::cout << std::endl;
-
-        _test_bure("Taisa", 0);
-        std::cout << std::endl;
-    }
-    {
-        std::cout << "<TEST FORM>" << std::endl;
-        _test_form("test1", 10, 10);
-        _test_form("test2", 20, 10);
-        _test_form("test3", 10, 20);
-    }
+    std::cout << "<TEST FORM>" << std::endl;
+    _test_form("Akira", 10, "test1", 100, 100);
+    std::cout << std::endl;
+    _test_form("Tetsuo", 100, "test1", 10, 10);
+    std::cout << std::endl;
+    _test_form("Kiyoko", 100, "test1", -10, 10);
+    std::cout << std::endl;
+    _test_form("Takashi", 100, "test1", 10, -10);
+    std::cout << std::endl;
+    _test_form("Masaru", 100, "test1", 10, 999);
+    std::cout << std::endl;
+    _test_form("Taisa", 100, "test1", 999, 10);
+    std::cout << std::endl;
+    _test_form("A", 999, "test1", 999, 999);
+    std::cout << std::endl;
+    _test_form("B", 100, "test1", -999, -999);
+    std::cout << std::endl;
     return (0);
 }
