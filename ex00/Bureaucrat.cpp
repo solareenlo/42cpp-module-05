@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 04:56:53 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/02 08:49:40 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:16:40 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ int                 Bureaucrat::getLowestGrade() const {
 }
 
 void    Bureaucrat::incrementGrade() {
+    this->checkGrade(this->getGrade() - 1);
     this->setGrade(this->getGrade() - 1);
-    this->checkGrade(this->getGrade());
 }
 
 void    Bureaucrat::decrementGrade() {
+    this->checkGrade(this->getGrade() + 1);
     this->setGrade(this->getGrade() + 1);
-    this->checkGrade(this->getGrade());
 }
 
 void    Bureaucrat::checkGrade(int grade) {
