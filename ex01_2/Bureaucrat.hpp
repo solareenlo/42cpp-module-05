@@ -6,12 +6,12 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:50:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/01 21:35:00 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:02:04 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
-#ifndef EX01_BUREAUCRAT_HPP_
-#define EX01_BUREAUCRAT_HPP_
+#ifndef EX01_2_BUREAUCRAT_HPP_
+#define EX01_2_BUREAUCRAT_HPP_
 
 #include <iostream>
 #include <string>
@@ -66,4 +66,4 @@ class   Bureaucrat {
 
 std::ostream&   operator<<(std::ostream& ostream, Bureaucrat const& right);
 
-#endif  // EX01_BUREAUCRAT_HPP_
+#endif  // EX01_2_BUREAUCRAT_HPP_
