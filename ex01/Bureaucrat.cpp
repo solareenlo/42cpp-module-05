@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 04:56:53 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/02 09:13:34 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:42:50 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -39,14 +39,6 @@ std::string const&  Bureaucrat::getName() const { return (this->name_); }
 int                 Bureaucrat::getGrade() const { return (this->grade_); }
 void                Bureaucrat::setGrade(int grade) { this->grade_ = grade; }
 
-int                 Bureaucrat::getHighestGrade() const {
-    return (this->highest_grade_);
-}
-
-int                 Bureaucrat::getLowestGrade() const {
-    return (this->lowest_grade_);
-}
-
 void    Bureaucrat::incrementGrade() {
     this->checkGrade(this->getGrade() - 1);
     this->setGrade(this->getGrade() - 1);
@@ -55,6 +47,26 @@ void    Bureaucrat::incrementGrade() {
 void    Bureaucrat::decrementGrade() {
     this->checkGrade(this->getGrade() + 1);
     this->setGrade(this->getGrade() + 1);
+}
+
+int Bureaucrat::getHighestGrade() const {
+    return (this->highest_grade_);
+}
+
+int Bureaucrat::getLowestGrade() const {
+    return (this->lowest_grade_);
+}
+
+void    Bureaucrat::signForm(Form* form) const {
+    try {
+        form->beSigned(*this);
+        std::cout << this->getName() << " signs " << form->getName();
+        std::cout << std::endl;
+    }
+    catch (std::exception const& e) {
+        std::cout << this->getName() << " cannot sign " << form->getName();
+        std::cout << " because " << e.what() << std::endl;
+    }
 }
 
 void    Bureaucrat::checkGrade(int grade) {
