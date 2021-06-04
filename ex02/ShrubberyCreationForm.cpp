@@ -12,17 +12,17 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-char const* form_name_ = "Shrubbery";
-// const char* ASCIITREE = "tree";
-// "              ,@@@@@@@,\n"
-// "      ,,,.   ,@@@@@@8@@,  .oo8888o.\n"
-// "   ,&%%&%&&%,@@@@@@@@@@@@,888888888o\n"
-// "  ,%&%%&&%&&%,@@@@@@@@@@@88888888888'\n"
-// "  %&&%&%&/%&&%@@@@@@ @@@@88888888888'\n"
-// "  %&&%% %&%%&&@@@ V @@@' `8888 `888'\n"
-// "  `&%  `  %&'    |.|         |'|8'\n"
-// "      |o|        | |         | |\n"
-// "      |.|        | |         | |\n";
+char const* ShrubberyCreationForm::form_name_ = "Shrubbery";
+char const* ShrubberyCreationForm::ascii_tree_ = ""
+            "              ,@@@@@@@,\n"
+            "      ,,,.   ,@@@@@@@@@,  .oo8888o.\n"
+            "   ,&&&&&&&&,@@@@@@@@@@@@,888888888o\n"
+            "  ,&&&&&&&&&&,@@@@@@@@@@@88888888888'\n"
+            "  &&&&&&&&&&&&@@@@@@@@@@@88888888888'\n"
+            "  &&&&& &&&&&&@@@ @ @@@' `8888 `888'\n"
+            "  `&&  `  &&'    |.|         |'|8'\n"
+            "      |.|        |.|         |'|\n"
+            "      |.|        |.|         |'|\n";
 
 ShrubberyCreationForm::ShrubberyCreationForm()
     : Form(this->getFromName(), this->getSignGrade(), this->getExecGrade()) {}
@@ -49,23 +49,14 @@ ShrubberyCreationForm::operator=(ShrubberyCreationForm const& right) {
 void    ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     Form::execute(executor);
 
-    std::string const&  filename(std::string(this->getTarget()) + std::string("_shrubbery"));
+    std::string const&
+        filename(std::string(this->getTarget()) + std::string("_shrubbery"));
     std::ofstream   out(filename);
-    if (out) {
-        std::string const tree = ""
-            "              ,@@@@@@@,\n"
-            "      ,,,.   ,@@@@@@8@@,  .oo8888o.\n"
-            "   ,&%%&%&&%,@@@@@@@@@@@@,888888888o\n"
-            "  ,%&%%&&%&&%,@@@@@@@@@@@88888888888'\n"
-            "  %&&%&%&/%&&%@@@@@@ @@@@88888888888'\n"
-            "  %&&%% %&%%&&@@@ V @@@' `8888 `888'\n"
-            "  `&%  `  %&'    |.|         |'|8'\n"
-            "      |o|        | |         | |\n"
-            "      |.|        | |         | |\n";
-        out << std::string(tree);
-    } else {
-        std::cerr << "Error: " << filename << " could not be opend" << std::endl;
-    }
+    if (out)
+        out << std::string(this->getAsciiTree());
+    else
+        std::cerr << "Error: " << filename
+            << " could not be opend" << std::endl;
 }
 
 char const*   ShrubberyCreationForm::getFromName() const {
@@ -78,4 +69,8 @@ int ShrubberyCreationForm::getSignGrade() const {
 
 int ShrubberyCreationForm::getExecGrade() const {
     return (this->exec_grade_);
+}
+
+char const* ShrubberyCreationForm::getAsciiTree() const {
+    return (this->ascii_tree_);
 }

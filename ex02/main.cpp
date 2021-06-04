@@ -15,7 +15,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-void    _test(std::string const& name_bure,
+void    _test_shrubbery(std::string const& name_bure,
         int grade,
         std::string const& target) {
     try {
@@ -26,8 +26,7 @@ void    _test(std::string const& name_bure,
 
         form.beSigned(bure);
         std::cout << form;
-        // form.execute(bure);
-        // std::cout << form;
+        form.execute(bure);
         std::cout << std::endl;
     }
     catch (std::exception& e) {
@@ -37,11 +36,11 @@ void    _test(std::string const& name_bure,
 }
 
 int main() {
-    std::cout << "<TEST FORM>" << std::endl;
-    _test("Akira", 10, "test1");
-    _test("Tetsuo", 140, "test2");
-    _test("Kiyoko", 150, "test3");
-    _test("A", 999, "test7");
-    _test("B", -999, "test8");
+    std::cout << "<SHURUBBERY TESTS>" << std::endl;
+    _test_shrubbery("Akira", 10, "test1");
+    _test_shrubbery("Tetsuo", 140, "test2");
+    _test_shrubbery("Kiyoko", 150, "test3");
+    _test_shrubbery("A", 999, "test4");
+    _test_shrubbery("B", -999, "test5");
     return 0;
 }
