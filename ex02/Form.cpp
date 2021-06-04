@@ -16,7 +16,8 @@ Form::Form()
     : name_("Test"),
       sign_grade_(this->getLowestGrade_()),
       exec_grade_(this->getLowestGrade_()),
-      signed_(false) {
+      signed_(false),
+      target_("") {
     this->checkGrade(this->getSignGrade());
     this->checkGrade(this->getExecGrade());
 }
@@ -25,7 +26,19 @@ Form::Form(std::string const& name, int const sign_grade, int const exec_grade)
     : name_(name),
       sign_grade_(sign_grade),
       exec_grade_(exec_grade),
-      signed_(false) {
+      signed_(false),
+      target_("") {
+    this->checkGrade(this->getSignGrade());
+    this->checkGrade(this->getExecGrade());
+}
+
+Form::Form(std::string const& name, int const sign_grade, int const exec_grade,
+        std::string const& target)
+    : name_(name),
+      sign_grade_(sign_grade),
+      exec_grade_(exec_grade),
+      signed_(false),
+      target_(target) {
     this->checkGrade(this->getSignGrade());
     this->checkGrade(this->getExecGrade());
 }
@@ -48,6 +61,7 @@ Form&   Form::operator=(Form const& right) {
 std::string const&  Form::getName() const { return (this->name_); }
 int     Form::getSignGrade() const { return (this->sign_grade_); }
 int     Form::getExecGrade() const { return (this->exec_grade_); }
+std::string const&  Form::getTarget() const { return (this->target_); }
 bool    Form::getSigned() const { return (this->signed_); }
 int     Form::getHighestGrade_() const { return (this->highest_grade_); }
 int     Form::getLowestGrade_() const { return (this->lowest_grade_); }
@@ -64,6 +78,13 @@ void    Form::beSigned(Bureaucrat const& bure) {
     if (bure.getGrade() > this->sign_grade_)
         throw Form::GradeTooLowException();
     this->setSigned(true);
+}
+
+void    Form::execute(Bureaucrat const& executer) const {
+    if (!this->getSigned())
+        throw Form::NotSignedException();
+    if (executer.getGrade() > this->getExecGrade())
+        throw Form::GradeTooLowException();
 }
 
 Form::GradeTooHighException::GradeTooHighException() : std::exception() {}
@@ -102,6 +123,26 @@ Form::GradeTooLowException::operator=
 
 char const* Form::GradeTooLowException::what() const throw() {
     return ("Grade is too low for form");
+}
+
+Form::NotSignedException::NotSignedException() : std::exception() {}
+Form::NotSignedException::~NotSignedException() throw() {}
+
+Form::NotSignedException::NotSignedException
+(Form::NotSignedException const& src) : std::exception() {
+    this->operator=(src);
+}
+
+Form::NotSignedException&
+Form::NotSignedException::operator=
+(Form::NotSignedException const& right) {
+    std::exception::operator=(right);
+    return (*this);
+}
+
+char const*
+Form::NotSignedException::what() const throw() {
+    return("Form is not signed");
 }
 
 std::ostream&   operator<<(std::ostream& ostream, Form const& right) {

@@ -13,17 +13,21 @@
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-void    _test(std::string const& name_bure, int grade,
-        std::string const& name_form, int sign_grade, int exec_grade) {
+void    _test(std::string const& name_bure,
+        int grade,
+        std::string const& target) {
     try {
         std::cout << name_bure << "'s test" << std::endl;
 
         Bureaucrat  bure(name_bure, grade);
-        Form        form(name_form, sign_grade, exec_grade);
-        std::cout << bure;
-        bure.signForm(&form);
+        ShrubberyCreationForm   form(target);
+
+        form.beSigned(bure);
         std::cout << form;
+        // form.execute(bure);
+        // std::cout << form;
         std::cout << std::endl;
     }
     catch (std::exception& e) {
@@ -34,14 +38,10 @@ void    _test(std::string const& name_bure, int grade,
 
 int main() {
     std::cout << "<TEST FORM>" << std::endl;
-    _test("Akira", 10, "test1", 100, 100);
-    _test("Tetsuo", 100, "test1", 10, 10);
-    _test("Kiyoko", 100, "test1", -10, 10);
-    _test("Takashi", 100, "test1", 10, -10);
-    _test("Masaru", 100, "test1", 10, 999);
-    _test("Taisa", 100, "test1", 999, 10);
-    _test("A", 999, "test1", 999, 999);
-    _test("B", -999, "test1", 999, 999);
-    _test("C", 100, "test1", -999, -999);
+    _test("Akira", 10, "test1");
+    _test("Tetsuo", 140, "test2");
+    _test("Kiyoko", 150, "test3");
+    _test("A", 999, "test7");
+    _test("B", -999, "test8");
     return 0;
 }

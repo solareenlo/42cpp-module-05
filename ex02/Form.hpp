@@ -23,6 +23,8 @@ class   Bureaucrat;
 class   Form {
  public:
     Form(std::string const& name, int signGrade, int execGrade);
+    Form(std::string const& name, int signGrade, int execGrade,
+        std::string const& target);
     Form(Form const& src);
     ~Form();
     Form&   operator=(Form const& right);
@@ -31,7 +33,11 @@ class   Form {
     int                 getSignGrade() const;
     int                 getExecGrade() const;
     bool                getSigned() const;
+    std::string const&  getTarget() const;
     void                beSigned(Bureaucrat const& bure);
+
+ protected:
+    virtual void        execute(Bureaucrat const& executor) const;
 
  private:
     Form();
@@ -39,6 +45,7 @@ class   Form {
     int                 sign_grade_;
     int                 exec_grade_;
     bool                signed_;
+    std::string const   target_;
     static const int    highest_grade_ = 1;
     static const int    lowest_grade_ = 150;
     int                 getHighestGrade_() const;
@@ -61,6 +68,15 @@ class   Form {
         GradeTooLowException(GradeTooLowException const& src);
         ~GradeTooLowException() throw();
         GradeTooLowException&   operator=(GradeTooLowException const& right);
+        char const* what() const throw();
+    };
+
+    class   NotSignedException : public std::exception {
+     public:
+        NotSignedException();
+        NotSignedException(NotSignedException const& src);
+        ~NotSignedException() throw();
+        NotSignedException& operator=(NotSignedException const& right);
         char const* what() const throw();
     };
 };

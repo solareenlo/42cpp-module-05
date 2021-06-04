@@ -13,6 +13,7 @@
 #ifndef EX02_SHRUBBERYCREATIONFORM_HPP_
 #define EX02_SHRUBBERYCREATIONFORM_HPP_
 
+#include <fstream>
 #include <string>
 #include "Form.hpp"
 
@@ -27,7 +28,14 @@ class   ShrubberyCreationForm : public Form {
 
  private:
     ShrubberyCreationForm();
-    const char* ascii_tree_;
+    char const*         form_name_;
+    static const int    sign_grade_ = 145;
+    static const int    exec_grade_ = 137;
+    // char const*         ASCIITREE;
+    char const*         getFromName() const;
+    int                 getSignGrade() const;
+    int                 getExecGrade() const;
+    // char const*         getAsciiTree() const;
 };
 
 #endif  // EX02_SHRUBBERYCREATIONFORM_HPP_
