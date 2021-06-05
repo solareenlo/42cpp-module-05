@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 08:28:06 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 03:53:42 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 05:00:24 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void    _test_shrubbery(std::string const& name_bure,
-        int grade,
-        std::string const& target) {
+        int grade, std::string const& target) {
     try {
         std::cout << name_bure << "'s test" << std::endl;
 
@@ -37,13 +37,31 @@ void    _test_shrubbery(std::string const& name_bure,
 }
 
 void    _test_robotomy(std::string const& name_bure,
-        int grade,
-        std::string const& target) {
+        int grade, std::string const& target) {
     try {
         std::cout << name_bure << "'s test" << std::endl;
 
         Bureaucrat          bure(name_bure, grade);
         RobotomyRequestForm form(target);
+
+        form.beSigned(bure);
+        std::cout << form;
+        form.execute(bure);
+        std::cout << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << std::endl;
+    }
+}
+
+void    _test_presidential(std::string const& name_bure,
+        int grade, std::string const& target) {
+    try {
+        std::cout << name_bure << "'s test" << std::endl;
+
+        Bureaucrat              bure(name_bure, grade);
+        PresidentialPardonForm  form(target);
 
         form.beSigned(bure);
         std::cout << form;
@@ -70,5 +88,12 @@ int main() {
     _test_robotomy("Kiyoko", 60, "test33");
     _test_robotomy("A", 999, "test44");
     _test_robotomy("B", -999, "test55");
+
+    std::cout << "<PRESIDENTIAL TESTS>" << std::endl;
+    _test_presidential("Akira", 1, "test111");
+    _test_presidential("Tetsuo", 10, "test222");
+    _test_presidential("Kiyoko", 60, "test333");
+    _test_presidential("A", 999, "test444");
+    _test_presidential("B", -999, "test555");
     return 0;
 }
