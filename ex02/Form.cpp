@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:36:24 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/02 10:47:08 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 00:04:33 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -146,8 +146,7 @@ Form::NotSignedException::what() const throw() {
 }
 
 std::ostream&   operator<<(std::ostream& ostream, Form const& right) {
-    ostream << right.getName() << " ";
-    ostream << (right.getSigned() ? "" : "not ");
-    ostream << "signed" << std::endl;
+    ostream << right.getName() << " "
+    << (right.getSigned() ? "" : "not ") << "signed" << std::endl;
     return (ostream);
 }
