@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:23:48 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/02 21:15:14 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 03:11:38 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -37,15 +37,16 @@ class   Form {
     void                beSigned(Bureaucrat const& bure);
 
  protected:
+    Form();
     virtual void        execute(Bureaucrat const& executor) const;
 
  private:
-    Form();
     std::string const   name_;
     int                 sign_grade_;
     int                 exec_grade_;
     bool                signed_;
     std::string const   target_;
+    static const char*  init_name_;
     static const int    highest_grade_ = 1;
     static const int    lowest_grade_ = 150;
     int                 getHighestGrade_() const;

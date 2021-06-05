@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 20:35:16 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/04 08:50:34 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 02:47:08 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ class   ShrubberyCreationForm : public Form {
     static const int    sign_grade_ = 145;
     static const int    exec_grade_ = 137;
     static const char*  ascii_tree_;
-    char const*         getFromName() const;
-    int                 getSignGrade() const;
-    int                 getExecGrade() const;
+    char const*         getFormName() const;
     char const*         getAsciiTree() const;
 };
 

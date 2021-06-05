@@ -6,16 +6,18 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:36:24 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 00:04:33 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 03:11:33 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
+char const* Form::init_name_ = "Test";
+
 Form::Form()
-    : name_("Test"),
-      sign_grade_(this->getLowestGrade_()),
-      exec_grade_(this->getLowestGrade_()),
+    : name_(this->init_name_),
+      sign_grade_(this->lowest_grade_),
+      exec_grade_(this->lowest_grade_),
       signed_(false),
       target_("") {
     this->checkGrade(this->getSignGrade());
