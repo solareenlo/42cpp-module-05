@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:13:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 03:24:26 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 03:37:52 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -51,10 +51,6 @@ void    ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     else
         std::cerr << "Error: " << filename
             << " could not be opend" << std::endl;
-}
-
-char const* ShrubberyCreationForm::getFormName() const {
-    return (this->form_name_);
 }
 
 char const* ShrubberyCreationForm::getAsciiTree() const {
