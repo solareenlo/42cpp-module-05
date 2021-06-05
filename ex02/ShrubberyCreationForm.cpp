@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:13:40 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 02:55:26 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 03:24:26 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ char const* ShrubberyCreationForm::ascii_tree_ = ""
 ShrubberyCreationForm::ShrubberyCreationForm() : Form() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
-    : Form(this->form_name_, this->sign_grade_, this->exec_grade_, target) {
-}
+    : Form(this->form_name_, this->sign_grade_, this->exec_grade_, target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const& src)
-    : Form(src) {
-}
+    : Form(src) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
