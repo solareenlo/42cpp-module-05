@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:23:48 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 03:11:38 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 04:49:08 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ class   Form {
 
  private:
     std::string const   name_;
-    int                 sign_grade_;
-    int                 exec_grade_;
+    int const           sign_grade_;
+    int const           exec_grade_;
     bool                signed_;
     std::string const   target_;
     static const char*  init_name_;

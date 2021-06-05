@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 02:32:14 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 04:13:16 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 04:50:06 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 char const* RobotomyRequestForm::form_name_ = "Robotomy";
 
-RobotomyRequestForm::RobotomyRequestForm() : Form() {}
+RobotomyRequestForm::RobotomyRequestForm()
+    : Form(this->form_name_, this->sign_grade_, this->exec_grade_) {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const& target)
     : Form(this->form_name_, this->sign_grade_, this->exec_grade_, target) {}
