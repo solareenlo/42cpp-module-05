@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 08:28:06 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 11:12:09 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 11:16:34 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void    _test_intern(std::string const& name, std::string const& target) {
         std::cout << bure;
         bure.signForm(rrf);
         std::cout << *rrf;
+        std::cout << std::endl;
     }
 }
 
