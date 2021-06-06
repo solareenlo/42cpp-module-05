@@ -1,10 +1,13 @@
 # 42cpp-module-05
 
 ### ex03
-- 同じ base class からできた複数個の derived class に1つのメソッドでアクセスする
+- 同じ base class からできた複数個の derived class に1つのメソッドから使用できるようにする
+  - new 演算子を使用する
 
 ### ex02
 - 同じ base class からの複数個の derived class
+- オーバーライドしたメソッドを両方使用する
+  - derived class のオーバーライドしたメソッドの中でも base class のオーバーライドしたメソッドを呼べる
 
 ### ex01
 - 複数個の exception
