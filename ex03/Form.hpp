@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:23:48 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 05:15:41 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 12:12:58 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ class   Form {
     bool                getSigned() const;
     std::string const&  getTarget() const;
     void                beSigned(Bureaucrat const& bure);
+    virtual void        execute(Bureaucrat const& executor) const;
 
  protected:
     Form();
-    virtual void        execute(Bureaucrat const& executor) const;
 
  private:
     std::string const   name_;
