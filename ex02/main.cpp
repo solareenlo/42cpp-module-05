@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 08:28:06 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/06 05:00:24 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 11:56:04 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -74,6 +74,27 @@ void    _test_presidential(std::string const& name_bure,
     }
 }
 
+void    _test_bure(std::string const& name_bure, int grade,
+        std::string const& target) {
+        std::cout << name_bure << "'s test" << std::endl;
+
+        Bureaucrat              bure(name_bure, grade);
+        ShrubberyCreationForm   shrubbery(target);
+        RobotomyRequestForm     robotomy(target);
+        PresidentialPardonForm  presidential(target);
+
+        bure.signForm(&shrubbery);
+        bure.executeForm(shrubbery);
+
+        bure.signForm(&robotomy);
+        bure.executeForm(robotomy);
+
+        bure.signForm(&presidential);
+        bure.executeForm(presidential);
+
+        std::cout << std::endl;
+}
+
 int main() {
     std::cout << "<SHURUBBERY TESTS>" << std::endl;
     _test_shrubbery("Akira", 10, "test1");
@@ -95,5 +116,10 @@ int main() {
     _test_presidential("Kiyoko", 60, "test333");
     _test_presidential("A", 999, "test444");
     _test_presidential("B", -999, "test555");
+
+    std::cout << "<BUREAUCRAT TESTS>" << std::endl;
+    _test_bure("Tetsuo", 140, "test1111");
+    _test_bure("Kiyoko", 60, "test2222");
+    _test_bure("Tetsuo", 10, "test3333");
     return 0;
 }

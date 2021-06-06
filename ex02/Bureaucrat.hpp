@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 19:32:03 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/02 21:15:01 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/06 11:23:55 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class   Bureaucrat {
     void                incrementGrade();
     void                decrementGrade();
     void                signForm(Form* form) const;
+    void                executeForm(Form const& form) const;
 
  private:
     Bureaucrat();
