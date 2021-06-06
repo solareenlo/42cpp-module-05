@@ -1,7 +1,10 @@
 # 42cpp-module-05
 
+### ex03
+- 同じ base class からできた複数個の derived class に1つのメソッドでアクセスする
+
 ### ex02
-- 基底クラスと派生クラスの練習
+- 同じ base class からの複数個の derived class
 
 ### ex01
 - 複数個の exception
